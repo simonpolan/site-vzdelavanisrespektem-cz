@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Stránka nenalezena" description="Požadovaná stránka neexistuje.">
+  <section>
+    <div class="container">
+      <h1>Stránka nenalezena</h1>
+      <p>Tato stránka neexistuje nebo byla přesunuta.</p>
+      <a class="button" href={import.meta.env.BASE_URL}>Zpět na úvod</a>
+    </div>
+  </section>
+</Layout>

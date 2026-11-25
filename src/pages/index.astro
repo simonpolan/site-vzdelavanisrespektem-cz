@@ -1,0 +1,35 @@
+---
+import Section from '../components/Section.astro';
+import Layout from '../layouts/Layout.astro';
+import { SITE_AUTHOR, SITE_NAME } from '../site';
+---
+
+<Layout description={`${SITE_NAME} – projekt, který vede ${SITE_AUTHOR}.`}>
+  <section class="hero">
+    <div class="container">
+      <h1>{SITE_NAME}</h1>
+      <p>Web právě připravujeme.</p>
+      <a class="button" href="#kontakt">Kontakt</a>
+    </div>
+  </section>
+
+  <Section id="proc" title="Proč s respektem">
+    <p>Text připravujeme.</p>
+  </Section>
+
+  <Section id="pro-koho" title="Pro koho">
+    <p>Text připravujeme.</p>
+  </Section>
+
+  <Section id="nabidka" title="Nabídka">
+    <p>Text připravujeme.</p>
+  </Section>
+
+  <Section id="o-lucii" title="O Lucii">
+    <p>Text připravujeme.</p>
+  </Section>
+
+  <Section id="kontakt" title="Kontakt">
+    <p>Kontaktní údaje připravujeme.</p>
+  </Section>
+</Layout>

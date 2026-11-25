@@ -1,0 +1,25 @@
+---
+import { SITE_AUTHOR } from '../site';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="container">
+  <p>© {currentYear} {SITE_AUTHOR}</p>
+  <a href={`${import.meta.env.BASE_URL}ochrana-osobnich-udaju/`}>Ochrana osobních údajů</a>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 2rem;
+  }
+
+  p {
+    margin: 0;
+  }
+</style>

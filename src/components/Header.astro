@@ -1,0 +1,45 @@
+---
+import { NAVIGATION, SITE_NAME } from '../site';
+
+const homeUrl = import.meta.env.BASE_URL;
+---
+
+<header class="container">
+  <a class="brand" href={homeUrl}>{SITE_NAME}</a>
+  <nav aria-label="Hlavní navigace">
+    <ul>
+      {NAVIGATION.map(({ id, label }) => <li><a href={`${homeUrl}#${id}`}>{label}</a></li>)}
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+  }
+
+  .brand {
+    color: inherit;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li a {
+    display: inline-block;
+    padding-block: 0.25rem;
+  }
+</style>

@@ -1,0 +1,99 @@
+:root {
+  --color-background: #ffffff;
+  --color-text: #22302c;
+  --color-accent: #1f6653;
+  --color-accent-text: #ffffff;
+  --color-border: #d9e2de;
+  --content-width: 64rem;
+  --text-width: 42rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: system-ui, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+p {
+  max-width: var(--text-width);
+}
+
+a {
+  color: var(--color-accent);
+}
+
+a:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.container {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+section {
+  padding-block: 3.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.hero {
+  padding-block: 6rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  background: var(--color-accent);
+  color: var(--color-accent-text);
+  text-decoration: none;
+}
+
+.skip-link {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  padding: 0.5rem 1rem;
+  background: var(--color-background);
+  transform: translateY(-100%);
+}
+
+.skip-link:focus {
+  transform: none;
+}
