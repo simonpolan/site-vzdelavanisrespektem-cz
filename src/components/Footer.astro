@@ -1,12 +1,17 @@
 ---
 import { SITE_AUTHOR } from '../site';
 
+interface Props {
+  rootPath: string;
+}
+
+const { rootPath } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="container">
   <p>© {currentYear} {SITE_AUTHOR}</p>
-  <a href={`${import.meta.env.BASE_URL}ochrana-osobnich-udaju/`}>Ochrana osobních údajů</a>
+  <a href={`${rootPath}ochrana-osobnich-udaju/`}>Ochrana osobních údajů</a>
 </footer>
 
 <style>
