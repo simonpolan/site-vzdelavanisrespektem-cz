@@ -15,8 +15,8 @@ Requires Node.js 22.23.4 or newer.
 
 ## Where things are
 
-- `src/pages/index.astro`: landing page sections
-- `src/site.ts`: site name, navigation and search visibility
+- `src/pages/index.astro`: landing page
+- `src/site.ts`: site name and search visibility
 - `src/styles/global.css`: colours and base styles
 - `public/`: files served as they are
 
