@@ -1,8 +1,14 @@
 ---
+import { getImage } from 'astro:assets';
 import '../styles/global.css';
+import heroPhoto from '../assets/lucie-polanova.webp';
 import Footer from '../components/Footer.astro';
 import { getRootPath } from '../paths';
-import { HIDE_FROM_SEARCH, SITE_NAME } from '../site';
+import { HIDE_FROM_SEARCH, SITE_AUTHOR, SITE_NAME } from '../site';
+
+// Size recommended by Facebook, LinkedIn and X for large link previews.
+const SOCIAL_IMAGE_WIDTH = 1200;
+const SOCIAL_IMAGE_HEIGHT = 630;
 
 interface Props {
   title?: string;
@@ -13,6 +19,15 @@ const { title, description } = Astro.props;
 const rootPath = getRootPath(Astro.url.pathname, Astro.routePattern);
 const pageTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const socialImage = await getImage({
+  src: heroPhoto,
+  width: SOCIAL_IMAGE_WIDTH,
+  height: SOCIAL_IMAGE_HEIGHT,
+  fit: 'cover',
+  format: 'jpg',
+});
+const socialImageUrl = new URL(socialImage.src, Astro.site);
+const socialImageAlt = `${SITE_AUTHOR} drží notebook s logem ${SITE_NAME}`;
 ---
 
 <!doctype html>
@@ -31,6 +46,13 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content={String(SOCIAL_IMAGE_WIDTH)} />
+    <meta property="og:image:height" content={String(SOCIAL_IMAGE_HEIGHT)} />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
