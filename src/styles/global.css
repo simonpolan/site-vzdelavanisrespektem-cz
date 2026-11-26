@@ -4,6 +4,10 @@
   --color-accent: #1f6653;
   --color-accent-text: #ffffff;
   --color-border: #d9e2de;
+  /* Matches the light grey background of the hero photo. */
+  --color-hero-background: #f0eff6;
+  /* Rose gold of the laptop in the hero photo. */
+  --color-highlight: #a9795f;
   --content-width: 64rem;
   --text-width: 42rem;
 }
@@ -70,10 +74,6 @@ a:focus-visible {
 section {
   padding-block: 3.5rem;
   border-top: 1px solid var(--color-border);
-}
-
-.hero {
-  padding-block: 6rem;
 }
 
 .button {

@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
 import { getRootPath } from '../paths';
 import { HIDE_FROM_SEARCH, SITE_NAME } from '../site';
 
@@ -34,10 +33,9 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body>
     <a class="skip-link" href="#obsah">Přeskočit na obsah</a>
-    <Header rootPath={rootPath} />
     <main id="obsah">
       <slot />
     </main>
-    <Footer rootPath={rootPath} />
+    <Footer />
   </body>
 </html>

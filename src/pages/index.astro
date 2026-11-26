@@ -1,35 +1,88 @@
 ---
-import Section from '../components/Section.astro';
+import { Image } from 'astro:assets';
+import heroPhoto from '../assets/lucie-polanova.webp';
 import Layout from '../layouts/Layout.astro';
 import { SITE_AUTHOR, SITE_NAME } from '../site';
+
+const SLOGAN =
+  'Respektuji, že jsme každý jiný a každý se potřebuje vzdělávat po svém. Otevírám prostor, kde je to možné.';
 ---
 
-<Layout description={`${SITE_NAME} – projekt, který vede ${SITE_AUTHOR}.`}>
+<Layout description={SLOGAN}>
   <section class="hero">
-    <div class="container">
+    <Image
+      class="hero__photo"
+      src={heroPhoto}
+      alt={`${SITE_AUTHOR} drží notebook s logem ${SITE_NAME}`}
+      widths={[640, 1024, 1600, 2400]}
+      sizes="100vw"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="hero__text">
       <h1>{SITE_NAME}</h1>
-      <p>Web právě připravujeme.</p>
-      <a class="button" href="#kontakt">Kontakt</a>
+      <p class="hero__slogan">{SLOGAN}</p>
+      <p class="hero__notice">Web právě prochází redesignem a brzy bude opět k dispozici.</p>
     </div>
   </section>
-
-  <Section id="proc" title="Proč s respektem">
-    <p>Text připravujeme.</p>
-  </Section>
-
-  <Section id="pro-koho" title="Pro koho">
-    <p>Text připravujeme.</p>
-  </Section>
-
-  <Section id="nabidka" title="Nabídka">
-    <p>Text připravujeme.</p>
-  </Section>
-
-  <Section id="o-lucii" title="O Lucii">
-    <p>Text připravujeme.</p>
-  </Section>
-
-  <Section id="kontakt" title="Kontakt">
-    <p>Kontaktní údaje připravujeme.</p>
-  </Section>
 </Layout>
+
+<style>
+  .hero {
+    display: grid;
+    border-top: 0;
+    padding-block: 0;
+    background: var(--color-hero-background);
+  }
+
+  .hero__photo {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    object-position: 72% center;
+  }
+
+  .hero__text {
+    padding: 2.5rem 1.25rem 3rem;
+  }
+
+  .hero__slogan {
+    font-size: 1.25rem;
+  }
+
+  .hero__notice {
+    display: inline-block;
+    margin-block-start: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-inline-start: 3px solid var(--color-highlight);
+    background: var(--color-background);
+    font-size: 1rem;
+  }
+
+  @media (min-width: 48rem) {
+    .hero__photo,
+    .hero__text {
+      grid-area: 1 / 1;
+    }
+
+    /* Photo on the right, fading into the background so the text has its own space. */
+    .hero__photo {
+      justify-self: end;
+      width: 62%;
+      height: min(85vh, 44vw);
+      min-height: 28rem;
+      aspect-ratio: auto;
+      object-position: 75% 30%;
+      mask-image: linear-gradient(to right, transparent, #000 22%);
+    }
+
+    .hero__text {
+      align-self: center;
+      width: 44%;
+      max-width: 34rem;
+      padding-inline-start: max(1.25rem, 5vw);
+    }
+  }
+</style>
